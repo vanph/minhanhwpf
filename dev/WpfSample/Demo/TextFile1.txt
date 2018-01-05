@@ -1,0 +1,35 @@
+﻿<Button x:Name="myButton"
+        FontSize="24"
+        FontFamily="Candara"
+        Foreground="DarkRed">
+
+  _Click me!
+
+</Button>
+
+<Button HorizontalAlignment="Center" VerticalAlignment="Center">
+   <StackPanel>
+    <Ellipse Fill="Yellow" Width="40" Height="15" />
+    <TextBlock FontSize="24">
+      Oh <Italic>yeah</Italic> baby!
+    </TextBlock>
+    <Ellipse Fill="Yellow" Width="40" Height="15" />
+   </StackPanel>
+  </Button>
+
+
+  <Button	 Width="75" Height="24" Background="Yellow">
+  <Button.Template>
+    <ControlTemplate TargetType="Button">
+     <Grid>
+      <Rectangle Fill="{TemplateBinding Background}" RadiusX="5" RadiusY="5" />
+      <ContentPresenter RecognizesAccessKey="True" Content="{TemplateBinding Content}"
+               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+     </Grid>
+    </ControlTemplate>
+  </Button.Template>
+
+_Click me
+
+</Button>
