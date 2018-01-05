@@ -59,4 +59,12 @@ Alignment
   <Button HorizontalAlignment="Right" VerticalAlignment="Center" Content="OK" />
 </Grid>
 
+===
+Nav
 
+ <TextBlock FontSize="30">
+      This is the first page.
+      <LineBreak />
+      Click <Hyperlink NavigateUri="Page1.xaml">here</Hyperlink>
+      for the second page.
+    </TextBlock>
