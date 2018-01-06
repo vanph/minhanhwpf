@@ -19,27 +19,23 @@ namespace BindingExample
     /// </summary>
     public partial class Window1 : Window
     {
-        private readonly Person _person = new Person { Name = "Ian", Age = 34.6m };
+        private readonly Person _person = new Person {Name = "Ian", Age = 34, Address = "Hanoi"};
 
         public Window1()
         {
             InitializeComponent();
 
-            DataContext = _person;
+            this.DataContext = _person;
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var message= _person.Name + " is " + _person.Age;
-
-            MessageBox.Show(message);
+            MessageBox.Show($"{_person.Name} is {_person.Age}");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            _person.Age += 0.1m;
-
-            //ageText.GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+            _person.Age += 1;
         }
     }
 }

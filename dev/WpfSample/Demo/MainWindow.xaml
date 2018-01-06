@@ -5,8 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid >
-      
+        Title="Demo" Height="600" Width="800">
+    <!--<Grid Margin="20" >
+       <Grid.ColumnDefinitions>
+           <ColumnDefinition Width="100"/>
+            <ColumnDefinition  Width="400"/>
+            <ColumnDefinition  Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0" Grid.Column="0" Content="OK 00"
+                Margin="40,10,0,0"
+                HorizontalAlignment="Left" VerticalAlignment="Top" />
+        
+        <Button FontSize="40" Height="100" Grid.Row="0" Grid.Column="1" Content="OK 01" />
+        <Button Grid.Row="0" Grid.Column="2" Content="OK" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+
+        <Button Margin="10" Grid.Row="1" Grid.Column="0" Content="OK 10" />
+        
+        <Button Grid.Row="1" Grid.Column="1" Content="OK 11" />
+        <Button Grid.Row="1" Grid.Column="2" Content="OK 12" />
+
+        <Button Grid.Row="2" Grid.Column="0" Content="OK 20" />
+        <Button Grid.Row="2" Grid.Column="1" Content="OK 21" />
+        <Button Grid.Row="2" Grid.Column="2" Content="OK 22" />
+
+        --><!--<Ellipse Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                 Grid.RowSpan="3" Fill="Blue" />--><!--
+    </Grid>-->
+    
+    <Grid>
+        <Viewbox>
+
+            <Canvas Width="100" Height="100">
+                <Ellipse Width="100" Height="100" Fill="Yellow"
+                         Stroke="Black" StrokeThickness="6" />
+                <Ellipse Canvas.Left="25" Canvas.Top="23" Fill="Black"
+                         Width="15" Height="20" />
+                <Ellipse Canvas.Left="60" Canvas.Top="23" Fill="Black"
+                         Width="15" Height="20" />
+                <Path Stroke="Black" StrokeThickness="4" 
+                      Data="M20,60 Q 50,100 80,60" />
+            </Canvas>
+
+        </Viewbox>
     </Grid>
 </Window>
+
+<!--<Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click">
+    <StackPanel>
+        <Ellipse Fill="Yellow" Width="40" Height="15"></Ellipse>
+        <TextBlock FontSize="24"> Oh <Italic> Yeah</Italic> Baby !!!</TextBlock>
+        <Ellipse Fill="Red" Width="60" Height="15"></Ellipse>
+    </StackPanel>
+</Button>-->

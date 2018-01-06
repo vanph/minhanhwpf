@@ -7,6 +7,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -14,17 +15,20 @@
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <Label  Margin="2" >_Name:</Label>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="2"
-             Text="{Binding Name, Mode=OneWay}"/>
+        <TextBox  Grid.Row="0" Grid.Column="1" Margin="2"
+             Text="{Binding Name, Mode=TwoWay}"/>
 
         <Label Margin="2" Grid.Row="1" Grid.Column="0" >_Age:</Label>
 
-        <TextBox Name="AgeText2" Grid.Column="1" Grid.Row="1" Margin="2"
-                 Text="{Binding Age, Mode=TwoWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="2"
+                 Text="{Binding Age,Mode=TwoWay}"/>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
+        <TextBox  Grid.Column="1" Grid.Row="2" Margin="2"
+                 Text="{Binding Address}"/>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0">
             <Button Content="_Show..." Click="Button_Click" />
-            <Button Content="_Age..." Click="Button_Click_1" />
+            <Button Content="_+Age" Click="Button_Click_1" />
         </StackPanel>
     </Grid>
 </Window>

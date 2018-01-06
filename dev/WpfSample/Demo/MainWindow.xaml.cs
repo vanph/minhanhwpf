@@ -24,5 +24,11 @@ namespace Demo
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //MVVM
+            MessageBox.Show("hello world!");
+        }
     }
 }

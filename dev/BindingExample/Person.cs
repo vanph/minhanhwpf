@@ -2,32 +2,26 @@
 
 namespace BindingExample
 {
-    public class Person : INotifyPropertyChanged
+    public class Person : BasePropertyChange
     {
         public string Name { get; set; }
 
-        private decimal _ageValue;
-        public decimal Age
+        public string Address { get; set; }
+
+        private int _age; //backing field
+        public int Age
         {
-            get => _ageValue;
+            get => _age;
             set
             {
-                if (value != _ageValue)
+                if (value != _age)
                 {
-                    _ageValue = value;
-                    OnPropertyChanged("Age");
+                    _age = value;
+                    RaisePropertyChanged(nameof(Age));
                 }
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+       
     }
 }
