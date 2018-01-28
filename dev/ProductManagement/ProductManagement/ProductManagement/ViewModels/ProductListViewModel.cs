@@ -4,6 +4,7 @@ using System.Windows;
 using ProductManagement.Framework;
 using ProductManagement.Models;
 using ProductManagement.Repositories;
+using ProductManagement.Views;
 
 namespace ProductManagement.ViewModels
 {
@@ -22,6 +23,16 @@ namespace ProductManagement.ViewModels
             }
         }
 
+        private Product _selectedProduct;
+        public Product SelectedProduct
+        {
+            get => _selectedProduct;
+            set
+            {
+                _selectedProduct = value;
+                RaisePropertyChanged(nameof(SelectedProduct));
+            }
+        }
         public DelegateCommand AddCommand { get; private set; }
 
         public DelegateCommand EditCommand { get; private set; }
@@ -36,8 +47,8 @@ namespace ProductManagement.ViewModels
             InitializeCommands();
             Products = new ObservableCollection<Product>(_productRepository.GetProducts());
         }
-        
-        
+
+
         private void InitializeCommands()
         {
             AddCommand = new DelegateCommand(o => this.OnAddCommandExecute());
@@ -45,25 +56,33 @@ namespace ProductManagement.ViewModels
             DeleteCommand = new DelegateCommand(o => this.OnDeleteCommandExecute());
             RefreshCommand = new DelegateCommand(o => this.RefreshProducts());
         }
-        
+
         private void RefreshProducts()
         {
-            
+            MessageBox.Show(nameof(RefreshProducts));
         }
 
         private void OnAddCommandExecute()
         {
-            
+            var productDetailView = new ProductDetailView();
+            productDetailView.ShowDialog();
         }
 
         private void OnEditCommandExecute()
         {
+            if (SelectedProduct != null)
+            {
+                MessageBox.Show(SelectedProduct.Name);
+            }
         }
 
         private void OnDeleteCommandExecute()
         {
-           
+            if (SelectedProduct != null)
+            {
+                MessageBox.Show(SelectedProduct.Name);
+            }
         }
-        
+
     }
 }

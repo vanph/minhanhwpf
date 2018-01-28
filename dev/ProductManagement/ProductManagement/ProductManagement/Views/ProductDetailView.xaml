@@ -1,0 +1,55 @@
+﻿<Window x:Class="ProductManagement.Views.ProductDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductManagement.Views"
+        mc:Ignorable="d"
+        Title="Product Details" 
+        WindowStartupLocation="CenterOwner"
+        Height="240" Width="400" MinHeight="200" MinWidth="350">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+                <Trigger Property="IsReadOnly" Value="True">
+                    <Setter Property="Background" Value="WhiteSmoke" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0"  Margin="0,8,0,0" Content="Code:" ></Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="16,8,0,0" VerticalContentAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Margin="0,8,0,0" Content="Name:" ></Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="16,8,0,0"></TextBox>
+            <Label Grid.Row="2" Grid.Column="0" Margin="0,8,0,0" Content="Price:"></Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="16,8,0,0"></TextBox>
+          
+        </Grid>
+
+        <StackPanel Grid.Row="1" Margin="0,16,0,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Content="Save" Height="25" Width="75"></Button>
+            <Button Margin="8,0,0,0" Content="Cancel" Height="25" Width="75" ></Button>
+        </StackPanel>
+    </Grid>
+</Window>
