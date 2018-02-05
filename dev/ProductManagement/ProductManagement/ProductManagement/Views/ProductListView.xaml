@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProductManagement.Views"
+             xmlns:l="clr-namespace:ProductManagement.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              DataContext="{Binding Source={StaticResource Locator}, Path=ProductListViewModel}">
     <UserControl.Resources>
+        <l:StringToCurrencyConverter x:Key="Converter"/>
         <Style x:Key="GridCellStyle" TargetType="{x:Type DataGridCell}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -60,8 +62,10 @@
                                         Header="Code" Width="*" />
                     <DataGridTextColumn Binding="{Binding Name}"
                                         Header="Name" Width="2*" />
-                    <DataGridTextColumn Binding="{Binding Price, StringFormat=\{0:c\}}"
+                    <DataGridTextColumn Binding="{Binding Price, Converter={StaticResource Converter}}"
                                         Width="*" Header="Price">
+                    <!--<DataGridTextColumn Binding="{Binding Price, StringFormat=\{0:c\}}"
+                                            Width="*" Header="Price">-->
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="TextAlignment" Value="Center" />
@@ -74,6 +78,8 @@
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                                     <Button Margin="8,2,0,2" Content="Edit" Height="22" Width="70"
                                             Command="{Binding Path=DataContext.EditCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"></Button>
+                                    <!--<Button Margin="8,2,0,2" Content="Edit" Height="22" Width="70"
+                                            Command="{TemplateBinding }"></Button>-->
                                     <Button Margin="8,2,0,2" Content="Delete" Height="22" Width="70"
                                             Command="{Binding Path=DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"></Button>
                                 </StackPanel>
@@ -97,7 +103,7 @@
                 <Label Grid.Row="1" Grid.Column="0" Margin="0,8,0,0" Content="Name:" ></Label>
                 <TextBlock Grid.Row="1" Grid.Column="1" Margin="16,8,0,0" Text="{Binding SelectedProduct.Name}"></TextBlock>
                 <Label Grid.Row="2" Grid.Column="0" Margin="0,8,0,0" Content="Price:"></Label>
-                <TextBlock Grid.Row="2" Grid.Column="1" Margin="16,8,0,0" Text="{Binding SelectedProduct.Price}"></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Margin="16,8,0,0" Text="{Binding SelectedProduct.Price, Converter={StaticResource Converter}}"></TextBlock>
             </Grid>
         </Grid>
     </Grid>

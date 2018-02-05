@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:ProductManagement.Views"
         mc:Ignorable="d"
         Title="Product Details" 
-        WindowStartupLocation="CenterOwner"
-        Height="240" Width="400" MinHeight="200" MinWidth="350">
+        WindowStartupLocation="CenterScreen"
+        Height="240" Width="400" MinHeight="200" MinWidth="350"
+        DataContext="{Binding Source={StaticResource Locator}, Path=ProductListViewModel}">
     <Window.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontWeight" Value="Bold" />
@@ -49,6 +50,8 @@
 
         <StackPanel Grid.Row="1" Margin="0,16,0,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Button Content="Save" Height="25" Width="75"></Button>
+            <!--<Button Content="Save" Height="25" Width="75"
+                    Command="{Binding Path=}"></Button>-->
             <Button Margin="8,0,0,0" Content="Cancel" Height="25" Width="75" ></Button>
         </StackPanel>
     </Grid>
