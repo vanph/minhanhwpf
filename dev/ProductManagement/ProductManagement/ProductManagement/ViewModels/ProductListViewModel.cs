@@ -72,7 +72,9 @@ namespace ProductManagement.ViewModels
         {
             if (SelectedProduct != null)
             {
-                MessageBox.Show(SelectedProduct.Name);
+                //MessageBox.Show(SelectedProduct.Name);
+                var productDetailView = new ProductDetailView();
+                productDetailView.ShowDialog();
             }
         }
 

@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="Product Details" 
         WindowStartupLocation="CenterScreen"
-        Height="240" Width="400" MinHeight="200" MinWidth="350"
-        DataContext="{Binding Source={StaticResource Locator}, Path=ProductListViewModel}">
+        Height="240" Width="400" MinHeight="200" MinWidth="350">
     <Window.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="FontWeight" Value="Bold" />
